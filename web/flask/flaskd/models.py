@@ -1,11 +1,8 @@
-from orm.basic.conn import engine
-from sqlalchemy import Column, String, Integer, Text
+from sqlalchemy import Column,String,Integer,Table,Text,ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy import Table, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-
 
 class User(Base):
     __tablename__ = 'users'
@@ -76,7 +73,3 @@ class Tag(Base):
 
     def __repr__(self):
         return '%s(%r)' % (self.__class__.__name__, self.name)
-
-
-if __name__ == "__main__":
-    Base.metadata.create_all(engine)
